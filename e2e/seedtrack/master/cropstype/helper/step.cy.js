@@ -4,35 +4,29 @@ const method = new Method();
 
 export class Step {
 	// search data
-	SYNST_MMC_001() {
+	SYNST_MMCT_001() {
 		method.searchAction();
 	}
 
-	SYNST_MMC_002() {
-		method.clickFilterBtn();
-		method.filterInputAction();
-		method.filterSearchAction();
-		method.filterDownloadAction();
-		method.filterResetAction();
-	}
-
 	// add data
-	SYNST_MMC_003() {
+	SYNST_MMCT_002() {
 		method.clickAddBtn();
 		method.inputFormAdd();
+		method.checkValueInputForm();
 		method.submitForm();
 		method.confirmAddForm();
 		method.confirmSavedData();
+		method.checkSavedData();
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
-	SYNST_MMC_004() {
+	SYNST_MMCT_003() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MMC_005() {
+	SYNST_MMCT_004() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();
@@ -40,29 +34,29 @@ export class Step {
 		method.checkEmptyInput();
 	}
 
-	SYNST_MMC_006() {
+	SYNST_MMCT_005() {
 		method.clickDownloadBtn();
 	}
     
 	// Login Aplikasi dengan Username dan Password Tidak Sesuai
-	SYNST_MMC_007() {
+	SYNST_MMCT_006() {
 		method.clickImportBtn();
 		method.importOtherXlsx();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MMC_010(){
+	SYNST_MMCT_009(){
 		method.clickImportBtn();
 		method.importUnsupportedFile();
 		method.uploadImportBtn();
 		method.checkModalError();
 	} 	
 
-	SYNST_MMC_011(){
+	SYNST_MMCT_010(){
 		method.selectData();
 		method.clickEditDropdown();
-		method.checkCorrectInputValue();
+		method.checkValueInputForm();
 		method.changeValue();
 		method.submitForm();
 		method.confirmAddForm();
@@ -70,21 +64,25 @@ export class Step {
 		method.checkIfNewDataEdited();
 	} 
 
-	SYNST_MMC_012(){
+	SYNST_MMCT_011(){
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
 
-	// SYNST_MMC_014() {
+	SYNST_MMCT_012(){
+		method.checkPagination();
+	}
+
+	// SYNST_MMCT_014() {
 	// 	method.clickAddBtn();
 	// 	method.inputFormAddTag();
 	// 	method.submitForm();
 	// 	method.confirmAddForm();
 	// }
 
-	SYNST_MMC_015() {
+	SYNST_MMCT_014() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.submitForm();
@@ -92,19 +90,20 @@ export class Step {
 		method.confirmFailedData();
 	}
 
-	SYNST_MMC_016() {
+	SYNST_MMCT_015() {
 		method.sortingData();
 	}
 
-	SYNST_MMC_019() {
+	SYNST_MMCT_018() {
 		method.clickAddBtn();
-		method.inputFormAddAfterDelete();
+		method.inputFormAdd();
+		method.checkValueInputForm();
 		method.submitForm();
 		method.confirmAddForm();
-		method.confirmSavedData(); 
+		method.confirmSavedData()
 	}
 
-	SYNST_MMC_020() {
+	SYNST_MMCT_019() {
 		method.clickImportBtn();
 		method.uploadImportBtn();
 		method.checkModalError();

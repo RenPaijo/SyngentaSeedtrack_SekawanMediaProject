@@ -1,9 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	dataMaster = 'Master Data';
-	btnCrops = 'Master Crops';
-	tableCrops = 'tbody';
+	tableScoring = 'tbody';
 
 	//button
 	genericBtn = 'button'
@@ -13,9 +11,11 @@ export class Locator {
 
 	//input
 	inputSearch = 'input[placeholder="Type to search"]';
-	inputCode = 'input[name="CropCode"]';
-	inputName = 'input[name="CropName"]';
-	importFile = '#small-file-input'
+	inputSelect = '.css-15aq8md';
+	selectDropdown = '.css-1laf4ja-menu';
+	valueSelect = '.css-1n0qa22';
+	inputName = 'input[name="ScoringParameterName"]';
+	resetSelect = '.css-1vbg55u-indicatorContainer'
 
 	//dropdown
 	dropdown = 'div[role="menu"]'
