@@ -1,7 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	tableCropsType = 'tbody';
+	tableUom = 'tbody';
 
 	//button
 	genericBtn = 'button'
@@ -14,8 +14,8 @@ export class Locator {
 	inputSelect = '.css-1n0qa22';
 	selectDropdown = '.css-1laf4ja-menu';
 	valueSelect = '.css-1n0qa22';
-	inputName = 'input[name="CropTypeName"]';
-	inputCode = 'input[name="CropTypeCode"]';
+	inputName = 'input[name="PlantingRegionName"]';
+	inputCode = 'input[name="PlantingRegionCode"]';
 	importFile = '#small-file-input'
 	resetSelect = '.css-1vbg55u-indicatorContainer'
 

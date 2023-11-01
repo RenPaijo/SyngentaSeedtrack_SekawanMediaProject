@@ -6,16 +6,16 @@ const correctXlsxPath = './cypress/fixtures/template_master_jenis_padi.xlsx'
 const nonTemplateXlsxPath = './cypress/fixtures/seedtrack/non-template.xlsx'
 const unsupportedPath = './cypress/fixtures/seedtrack/unsupported.pdf'
 
-const randstring = generateString(6);
+const randstring = generateString(4);
 const randomstring = `${randstring}`;
 
 export class Method {
   //method untuk aksi search
   searchAction() {
-    cy.get('div[class="h-fit"]').contains('Master Crops Type').should('be.exist');
-    cy.get(locator.inputSearch).click().type('SCORN');
-    cy.get(locator.tableCropsType).should('contain', 'SCORN');
-    cy.get(locator.tableCropsType).find(locator.rowTable).should('have.length', 1);
+    cy.get('div[class="h-fit"]').contains('Unit of Measurement').should('be.exist');
+    cy.get(locator.inputSearch).click().type('Hectares');
+    cy.get(locator.tableUom).should('contain', 'Hectares');
+    cy.get(locator.tableUom).find(locator.rowTable).should('have.length', 1);
   }
 
   clickAddBtn() {
@@ -24,18 +24,18 @@ export class Method {
   }
 
   inputFormAdd() {
-    cy.get(locator.inputSelect).contains('Choose Crops Code').click({force: true});
-    cy.get(locator.selectDropdown).contains('ONION').click();
+    cy.get(locator.inputSelect).contains('Choose Type').click({force: true});
+    cy.get(locator.selectDropdown).contains('Area').click();
 
     cy.get(locator.inputCode).type(randomstring);
-    cy.get(locator.inputName).type('Bawang');
+    cy.get(locator.inputName).type('Nanometre');
   }
 
   checkValueInputForm() {
-    cy.get(locator.valueSelect).contains('ONION').should('be.exist');
+    cy.get(locator.valueSelect).contains('Area').should('be.exist');
 
     cy.get(locator.inputCode).should('have.value', randomstring);
-    cy.get(locator.inputName).should('have.value', 'Bawang');
+    cy.get(locator.inputName).should('have.value', 'Nanometre');
   }
 
   submitForm() {
@@ -53,12 +53,13 @@ export class Method {
   }
 
   checkSavedData() {
-    cy.get(locator.tableCropsType).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Bawang').and('contain', 'Onion Update');
+    cy.get(locator.tableUom).should('contain', randomstring);
+    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Nanometre')
+    .and('contain', 'Area');
   }
 
   checkEmptyWarning() {
-    cy.contains('Crop Code is required').should('be.visible');
+    cy.contains('Measurement Type is required').should('be.visible');
     cy.contains('Name is required').should('be.visible');
     cy.contains('Code is required').should('be.visible');
   }
@@ -68,7 +69,7 @@ export class Method {
   }
 
   checkEmptyInput() {
-    cy.get(locator.inputSelect).contains('Choose Crops Code').should('be.exist');
+    cy.get(locator.inputSelect).contains('Choose Type').should('be.exist');
 
     cy.get(locator.inputCode).should('have.value', '');
     cy.get(locator.inputName).should('have.value', '');
@@ -103,7 +104,7 @@ export class Method {
   selectData() {
     cy.get(locator.inputSearch).click().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('contain', randomstring);
+    cy.get(locator.tableUom).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).find(locator.actionBtn).first().click();
   }
 
@@ -116,11 +117,11 @@ export class Method {
   }
 
   changeValue() {
-    cy.get(locator.valueSelect).contains('ONION').click({force: true});
-    cy.get(locator.selectDropdown).contains('MELON').click();
+    cy.get(locator.valueSelect).contains('Area').click({force: true});
+    cy.get(locator.selectDropdown).contains('Volume').click();
 
     cy.get(locator.inputCode).type('-M');
-    cy.get(locator.inputName).clear().type('Melon Baru');
+    cy.get(locator.inputName).clear().type('Kubus');
   }
 
   confirmEditedData() {
@@ -131,9 +132,9 @@ export class Method {
   checkIfNewDataEdited() {
     cy.get(locator.inputSearch).click().clear().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Melon')
-    .and('contain', 'Melon Baru');
+    cy.get(locator.tableUom).should('contain', randomstring);
+    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Kubus')
+    .and('contain', 'Volume');
   }
 
   confirmDeleteData() {
@@ -146,7 +147,7 @@ export class Method {
   checkIfDataGone() {
     cy.get(locator.inputSearch).click().clear().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('not.contain', randomstring);
+    cy.get(locator.tableUom).should('not.contain', randomstring);
   }
 
   checkPagination() {
@@ -160,20 +161,20 @@ export class Method {
   }
 
   sortingData() {
-    cy.get(locator.tableHeader).contains('Crops Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Carrot Update').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Crops Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Tomato').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Type').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'Area').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Type').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'Volume').and('contain', '1');
 
     cy.get(locator.tableHeader).contains('Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'RC').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'G').and('contain', '1');
     cy.get(locator.tableHeader).contains('Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'WORTEL').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'Mg').and('contain', '1');
 
     cy.get(locator.tableHeader).contains('Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Raw Corn').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'Gram').and('contain', '1');
     cy.get(locator.tableHeader).contains('Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Wortel').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'Miligram').and('contain', '1');
   }
 
   // inputFormAddTag() {

@@ -32,11 +32,11 @@ describe("Master Crops", () => {
     cy.visit("https://portal-syn-seedtrack.skwn.dev/master/crops-type");
   });
 
-  it("Validasi search data", () => {
+  it.only("Validasi search data", () => {
     step.SYNST_MMCT_001();
   });
 
-  it("Validasi tambah data region baru", () => {
+  it("Validasi tambah data crops type baru", () => {
     step.SYNST_MMCT_002();
   });
 
@@ -44,7 +44,7 @@ describe("Master Crops", () => {
     step.SYNST_MMCT_014();
   });
 
-  it("Validasi tambah data region baru tanpa mengisi input data", () => {
+  it("Validasi tambah data crops type baru tanpa mengisi input data", () => {
     step.SYNST_MMCT_003();
   });
 
@@ -52,7 +52,7 @@ describe("Master Crops", () => {
     step.SYNST_MMCT_004();
   });
 
-  it.only("Validasi download template excel", () => {
+  it("Validasi download template excel", () => {
     step.SYNST_MMCT_005();
   });
 
@@ -72,11 +72,11 @@ describe("Master Crops", () => {
     step.SYNST_MMCT_009();
   });
 
-  it("Validasi edit data master region", () => {
+  it("Validasi edit data master crops type", () => {
     step.SYNST_MMCT_010();
   });
 
-  it("Validasi hapus data master region", () => {
+  it("Validasi hapus data master crops type", () => {
     step.SYNST_MMCT_011();
   });
 
@@ -92,7 +92,7 @@ describe("Master Crops", () => {
     step.SYNST_MMCT_015();
   });
   
-  it.skip("Validasi refresh menu master region", () => {
+  it.skip("Validasi refresh menu master crops type", () => {
     step.SYNST_MMCT_016();
   });
 
