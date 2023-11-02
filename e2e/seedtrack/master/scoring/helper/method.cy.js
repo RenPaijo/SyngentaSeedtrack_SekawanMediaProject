@@ -50,11 +50,14 @@ export class Method {
   confirmSavedData() {
     cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
     cy.get(locator.buttonBtn).contains('Oke').click();
+  }
+
+  checkSavedData() {
     cy.get(locator.tableScoring).should('contain', 'Jenis Cabbage');
     cy.contains('CBG').parent(locator.rowTable).should('contain', 'Singapura')
     .and('contain', 'Corn').and('contain', 'Technical');
   }
-
+  
   checkEmptyWarning() {
     cy.contains('Scoring Name is required').should('be.visible');
     cy.contains('Country is required').should('be.visible');

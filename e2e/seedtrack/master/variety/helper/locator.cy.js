@@ -1,7 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	tableModule = 'tbody';
+	tableUom = 'tbody';
 
 	//button
 	genericBtn = 'button'
@@ -11,10 +11,13 @@ export class Locator {
 
 	//input
 	inputSearch = 'input[placeholder="Type to search"]';
-	inputName = 'input[name="ModuleName"]';
-	inputCode = 'input[name="ModuleCode"]';
-	inputRemark = 'input[name="ModuleRemark"]';
+	selectDropdown = '.css-1laf4ja-menu';
+	valueSelect = '.css-1n0qa22';
+	inputName = 'input[name="VarietyName"]';
+	inputCode = 'input[name="VarietyCode"]';
+	inputNumber = 'input[name="VarietyNumber"]';
 	importFile = '#small-file-input'
+	resetSelect = '.css-1vbg55u-indicatorContainer'
 
 	//dropdown
 	dropdown = 'div[role="menu"]'

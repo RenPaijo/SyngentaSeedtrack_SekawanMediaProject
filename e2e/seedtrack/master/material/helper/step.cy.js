@@ -66,30 +66,25 @@ export class Step {
 		method.checkPagination();
 	} 	
 
-	SYNST_MM_011() {
-		method.sortingData();
-	}
-
-	SYNST_MM_014() {
+	SYNST_MM_012() {
 		method.clickImportBtn();
 		method.importUnsupportedFile();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MM_015() {
+	SYNST_MM_013() {
 		method.clickImportBtn();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
+	SYNST_MM_014() {
+		method.clickDownloadBtn();
+	}
+
 	SYNST_MM_016() {
-		method.clickAddBtn();
-		method.inputFormAdd();
-		method.checkValueInputForm();
-		method.submitForm();
-		method.confirmAddForm();
-		method.confirmSavedData()
+		method.sortingData();
 	}
 
 	SYNST_MM_017() {

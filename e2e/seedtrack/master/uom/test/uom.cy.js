@@ -111,6 +111,6 @@ describe("Master Crops", () => {
   });
 
   it("Cleaning Data", () => {
-    step.SYNST_MMUOM_012();
+    step.SYNST_MMUOM_011();
   })
 });

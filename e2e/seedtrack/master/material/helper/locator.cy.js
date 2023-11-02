@@ -1,7 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	tableModule = 'tbody';
+	tableMaterial = 'tbody';
 
 	//button
 	genericBtn = 'button'
@@ -11,10 +11,15 @@ export class Locator {
 
 	//input
 	inputSearch = 'input[placeholder="Type to search"]';
-	inputName = 'input[name="ModuleName"]';
-	inputCode = 'input[name="ModuleCode"]';
-	inputRemark = 'input[name="ModuleRemark"]';
-	importFile = '#small-file-input'
+	inputNumber = 'input[name="MaterialNumber"]';
+	inputName = 'input[name="MaterialName"]';
+	inputDesc = 'input[name="MaterialDescription"]';
+	inputStage = 'input[name="Stage"]';
+	inputYear = 'input[name="Year"]';
+	importFile = '#small-file-input';
+	selectDropdown = '.css-1laf4ja-menu';
+	valueSelect = '.css-1n0qa22';
+	resetSelect = '.css-1vbg55u-indicatorContainer';
 
 	//dropdown
 	dropdown = 'div[role="menu"]'

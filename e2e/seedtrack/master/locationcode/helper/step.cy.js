@@ -4,12 +4,12 @@ const method = new Method();
 
 export class Step {
 	// search data
-	SYNST_MMT_001() {
+	SYNST_MMLC_001() {
 		method.searchAction();
 	}
 
 	// add data
-	SYNST_MMT_002() {
+	SYNST_MMLC_002() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -20,13 +20,13 @@ export class Step {
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
-	SYNST_MMT_003() {
+	SYNST_MMLC_003() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MMT_004() {
+	SYNST_MMLC_004() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();
@@ -34,26 +34,26 @@ export class Step {
 		method.checkEmptyInput();
 	}
 
-	SYNST_MMT_005() {
+	SYNST_MMLC_005() {
 		method.clickDownloadBtn();
 	}
     
 	// Login Aplikasi dengan Username dan Password Tidak Sesuai
-	SYNST_MMT_006() {
+	SYNST_MMLC_006() {
 		method.clickImportBtn();
 		method.importOtherXlsx();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MMT_009(){
+	SYNST_MMLC_009(){
 		method.clickImportBtn();
 		method.importUnsupportedFile();
 		method.uploadImportBtn();
 		method.checkModalError();
 	} 	
 
-	SYNST_MMT_010(){
+	SYNST_MMLC_010(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.checkValueInputForm();
@@ -64,25 +64,18 @@ export class Step {
 		method.checkIfNewDataEdited();
 	} 
 
-	SYNST_MMT_011(){
+	SYNST_MMLC_011(){
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
 
-	SYNST_MMT_012(){
+	SYNST_MMLC_012(){
 		method.checkPagination();
 	}
 
-	// SYNST_MMT_014() {
-	// 	method.clickAddBtn();
-	// 	method.inputFormAddTag();
-	// 	method.submitForm();
-	// 	method.confirmAddForm();
-	// }
-
-	SYNST_MMT_014() {
+	SYNST_MMLC_014() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.submitForm();
@@ -91,11 +84,11 @@ export class Step {
 		method.checkSavedData();
 	}
 
-	SYNST_MMT_015() {
+	SYNST_MMLC_015() {
 		method.sortingData();
 	}
 
-	SYNST_MMPR_018() {
+	SYNST_MMLC_018() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -104,7 +97,7 @@ export class Step {
 		method.confirmSavedData()
 	}
 
-	SYNST_MMT_020() {
+	SYNST_MMLC_019() {
 		method.clickImportBtn();
 		method.uploadImportBtn();
 		method.checkModalError();

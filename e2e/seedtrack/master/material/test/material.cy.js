@@ -29,26 +29,26 @@ describe("Master Crops", () => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       return false;
     });
-    cy.visit("https://portal-syn-seedtrack.skwn.dev/master/module");
+    cy.visit("https://portal-syn-seedtrack.skwn.dev/master/material");
   });
 
-  it("Tambah data master module dengan valid", () => {
+  it("Tambah data master material dengan valid", () => {
     step.SYNST_MM_001();
   });
 
-  it("Tambah data master module tanpa input apapun pada field form", () => {
+  it("Tambah data master material tanpa input apapun pada field form", () => {
     step.SYNST_MM_002();
   });
 
-  it("Tambah data master module tanpa input di salah satu field yang wajib diisi", () => {
+  it("Tambah data master material tanpa input di salah satu field yang wajib diisi", () => {
     step.SYNST_MM_003();
   });
 
-  it("Edit data master module yang ada secara valid", () => {
+  it("Edit data master material yang ada secara valid", () => {
     step.SYNST_MM_004();
   });
 
-  it("Edit data master module dengan mengkosongi salah satu field yang wajib diisi", () => {
+  it("Edit data master material dengan mengkosongi salah satu field yang wajib diisi", () => {
     step.SYNST_MM_005();
   });
 
@@ -56,7 +56,7 @@ describe("Master Crops", () => {
     step.SYNST_MM_006();
   });
 
-  it("Validasi search dengan data valid pada master module", () => {
+  it("Validasi search dengan data valid pada master material", () => {
     step.SYNST_MM_007();
   });
 
@@ -64,7 +64,7 @@ describe("Master Crops", () => {
     step.SYNST_MM_008();
   });
 
-  it("Paginasi list tabel", () => {
+  it.skip("Paginasi list tabel", () => {
     step.SYNST_MM_009();
   });
 
@@ -72,37 +72,31 @@ describe("Master Crops", () => {
     step.SYNST_MM_010();
   });
 
-  it.skip("Validasi sorting pada kolom list tabel", () => {
+  it.skip("Import data pada master material dengan valid", () => {
     step.SYNST_MM_011();
   });
 
-  it.skip("Validasi data yang di inputkan sama dengan yang di tampilkan", () => {
+  it("Import data pada master material dengan data invalid", () => {
     step.SYNST_MM_012();
   });
 
-  it.skip("Import data pada master module dengan valid", () => {
+  it("Import data pada master material tanpa melakukan import data", () => {
     step.SYNST_MM_013();
   });
 
-  it("Import data pada master module dengan data invalid", () => {
+  it("Dapat mendownload templete yang sudah disediakan ", () => {
     step.SYNST_MM_014();
   });
-
-  it("Import data pada master module tanpa melakukan import data", () => {
+  
+  it.skip("Validasi data yang ditampilkan pada list tabel sudah sesuai dengan yang sudah ditambahkan", () => {
     step.SYNST_MM_015();
   });
-  
-  it("Tambah data yang sama dengan yang sudah dihapus", () => {
-    step.SYNST_MM_016();
-    step.SYNST_MM_006();
+
+  it("Validasi sorting pada kolom list tabel", () => {
     step.SYNST_MM_016();
   });
 
   it("Validasi keluar form tambah data kemudian masuk ke form tambah kembali", () => {
     step.SYNST_MM_017();
   });
-
-  it("Cleaning Data", () => {
-    step.SYNST_MM_006();
-  })
 });

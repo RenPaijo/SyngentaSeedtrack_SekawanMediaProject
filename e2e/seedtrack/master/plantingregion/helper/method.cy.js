@@ -71,7 +71,7 @@ export class Method {
 
   closeAddForm() {
     cy.get(locator.form).find(locator.modalClose).click();
-  }
+  } 
 
   checkEmptyInput() {
     cy.get(locator.inputSelect).contains('Choose Crop Type').should('be.exist');

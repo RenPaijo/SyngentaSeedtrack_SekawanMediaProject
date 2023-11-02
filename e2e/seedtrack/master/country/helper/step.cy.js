@@ -6,7 +6,7 @@ export class Step {
 	// search data
 
 	// add data
-	SYNST_MM_001() {
+	SYNST_MC_001() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -16,20 +16,20 @@ export class Step {
 		method.checkSavedData();
 	}
 
-	SYNST_MM_002() {
+	SYNST_MC_002() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MM_003() {
+	SYNST_MC_003() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
 		method.clearAnInput();
 	}
 
-	SYNST_MM_004(){
+	SYNST_MC_004(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.checkValueInputForm();
@@ -40,50 +40,53 @@ export class Step {
 		method.checkIfNewDataEdited();
 	}
 
-	SYNST_MM_005(){
+	SYNST_MC_005(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.clearAnInput();
 	} 
 
-	SYNST_MM_006() {
+	SYNST_MC_006() {
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
 
-	SYNST_MM_007() {
+	SYNST_MC_007() {
 		method.searchAction();
 	}
-    
-	// Login Aplikasi dengan Username dan Password Tidak Sesuai
-	SYNST_MM_008() {
+
+	SYNST_MC_008() {
 		method.searchUnexistData();
 	}
 
-	SYNST_MM_009(){
+	SYNST_MC_009(){
 		method.checkPagination();
 	} 	
 
-	SYNST_MM_011() {
-		method.sortingData();
-	}
-
-	SYNST_MM_014() {
+	SYNST_MC_012() {
 		method.clickImportBtn();
 		method.importUnsupportedFile();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MM_015() {
+	SYNST_MC_013() {
 		method.clickImportBtn();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MM_016() {
+	SYNST_MC_014() {
+		method.clickDownloadBtn();
+	}
+
+	SYNST_MC_016() {
+		method.sortingData();
+	}
+
+	SYNST_MM_017() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -92,7 +95,14 @@ export class Step {
 		method.confirmSavedData()
 	}
 
-	SYNST_MM_017() {
+	SYNST_MC_018() {
+		method.clickAddBtn();
+		method.inputFormAdd();
+		method.checkValueInputForm();
+		method.addCharToCode();
+	}
+
+	SYNST_MC_019() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();

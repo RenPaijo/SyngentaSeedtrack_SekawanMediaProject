@@ -1,26 +1,17 @@
 import { Locator } from "./locator.cy";
-import { generateString } from "./random.cy";
 
 const locator = new Locator(); // diimport dari file locator.cy.js yg sebelumnya dibuat
 const correctXlsxPath = './cypress/fixtures/template_master_jenis_padi.xlsx'
 const nonTemplateXlsxPath = './cypress/fixtures/seedtrack/non-template.xlsx'
 const unsupportedPath = './cypress/fixtures/seedtrack/unsupported.pdf'
 
-const randstring = generateString(4);
-const randomstring = `${randstring}`;
 
 export class Method {
   //method untuk aksi search
   searchAction() {
-    cy.get(locator.inputSearch).click().type('PLANT');
-    cy.get(locator.tableModule).should('contain', 'PLANT');
-    cy.get(locator.tableModule).find(locator.rowTable).should('have.length', 1);
-  }
-
-  searchUnexistData() {
-    cy.get(locator.inputSearch).click().type('no data');
-    cy.get(locator.tableModule).should('not.contain', 'no data');
-    cy.get(locator.tableModule).find(locator.rowTable).should('have.length', 1);
+    cy.get(locator.inputSearch).click().type('WONOKROMO');
+    cy.get(locator.tableLocationCode).should('contain', 'WONOKROMO');
+    cy.get(locator.tableLocationCode).find(locator.rowTable).should('have.length', 1);
   }
 
   clickAddBtn() {
@@ -29,15 +20,20 @@ export class Method {
   }
 
   inputFormAdd() {
-    cy.get(locator.inputCode).type(randomstring);
-    cy.get(locator.inputName).type('gitlab');
-    cy.get(locator.inputRemark).type('for commit');
+    cy.get(locator.inputName).type('KOTA');
+
+    cy.get(locator.valueSelect).contains('Choose Location Code Territory').click({force: true});
+    cy.get(locator.selectDropdown).contains('surabaya').click();
+
+    cy.get(locator.valueSelect).contains('Choose Location Code Crop Cycle').click({force: true});
+    cy.get(locator.selectDropdown).contains('Code').click();
   }
 
   checkValueInputForm() {
-    cy.get(locator.inputCode).should('have.value', randomstring);
-    cy.get(locator.inputName).should('have.value', 'gitlab');
-    cy.get(locator.inputRemark).should('have.value', 'for commit');
+    cy.get(locator.valueSelect).contains('surabaya').should('be.exist');
+    cy.get(locator.valueSelect).contains('Code').should('be.exist');
+
+    cy.get(locator.inputName).should('have.value', 'KOTA');
   }
 
   submitForm() {
@@ -55,21 +51,15 @@ export class Method {
   }
 
   checkSavedData() {
-    cy.get(locator.tableModule).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'gitlab')
-    .and('contain', 'for commit');
+    cy.get(locator.tableLocationCode).should('contain', 'KOTA');
+    cy.contains('KOTA').parent(locator.rowTable).should('contain', '9')
+    .and('contain', '2');
   }
 
   checkEmptyWarning() {
     cy.contains('Name is required').should('be.visible');
-    cy.contains('Code is required').should('be.visible');
-    cy.contains('Remark is required').should('be.visible');
-  }
-
-  clearAnInput() {
-    cy.get(locator.inputRemark).clear()
-    cy.get(locator.genericBtn).contains('Save').click();
-    cy.contains('Remark is required').should('be.visible');
+    cy.contains('Territory is required').should('be.visible');
+    cy.contains('Crop Cycle is required').should('be.visible');
   }
 
   closeAddForm() {
@@ -77,9 +67,10 @@ export class Method {
   }
 
   checkEmptyInput() {
-    cy.get(locator.inputCode).should('have.value', '');
+    cy.get(locator.valueSelect).contains('Choose Location Code Territory').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Location Code Crop Cycle').should('be.exist');
+
     cy.get(locator.inputName).should('have.value', '');
-    cy.get(locator.inputRemark).should('have.value', '');
   }
 
   clickDownloadBtn() {
@@ -109,10 +100,10 @@ export class Method {
   }
 
   selectData() {
-    cy.get(locator.inputSearch).click().type(randomstring);
+    cy.get(locator.inputSearch).click().type('KOTA');
     cy.wait(1000);
-    cy.get(locator.tableModule).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).find(locator.actionBtn).first().click();
+    cy.get(locator.tableLocationCode).should('contain', 'KOTA');
+    cy.contains('KOTA').parent(locator.rowTable).find(locator.actionBtn).first().click();
   }
 
   clickEditDropdown() {
@@ -124,9 +115,13 @@ export class Method {
   }
 
   changeValue() {
-    cy.get(locator.inputCode).type('-M');
-    cy.get(locator.inputName).clear().type('github');
-    cy.get(locator.inputRemark).clear().type('for push, pull, commit');
+    cy.get(locator.valueSelect).contains('surabaya').click({force: true});
+    cy.get(locator.selectDropdown).contains('Maninjau').click();
+
+    cy.get(locator.valueSelect).contains('Code').click({force: true});
+    cy.get(locator.selectDropdown).contains('Test').click();
+
+    cy.get(locator.inputName).clear().type('KOTABARU');
   }
 
   confirmEditedData() {
@@ -135,11 +130,11 @@ export class Method {
   }
 
   checkIfNewDataEdited() {
-    cy.get(locator.inputSearch).click().clear().type(randomstring);
+    cy.get(locator.inputSearch).click().clear().type('KOTABARU');
     cy.wait(1000);
-    cy.get(locator.tableModule).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'github')
-    .and('contain', 'for push, pull, commit');
+    cy.get(locator.tableLocationCode).should('contain', 'KOTABARU');
+    cy.contains('KOTABARU').parent(locator.rowTable).should('contain', '9')
+    .and('contain', '1');
   }
 
   confirmDeleteData() {
@@ -150,9 +145,9 @@ export class Method {
   }
 
   checkIfDataGone() {
-    cy.get(locator.inputSearch).click().clear().type(randomstring);
+    cy.get(locator.inputSearch).click().clear().type('KOTA');
     cy.wait(1000);
-    cy.get(locator.tableModule).should('not.contain', randomstring);
+    cy.get(locator.tableLocationCode).should('not.contain', 'KOTA');
   }
 
   checkPagination() {
@@ -166,20 +161,20 @@ export class Method {
   }
 
   sortingData() {
-    cy.get(locator.tableHeader).contains('Module Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Corn').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Module Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Tomato').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Location Code Name').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'AAA').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Location Code Name').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'WONOKROMO').and('contain', '1');
 
-    cy.get(locator.tableHeader).contains('Module Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Indonesia').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Module Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Philippines	').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Location Code Territory').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '7').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Location Code Territory').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '9').and('contain', '1');
 
-    cy.get(locator.tableHeader).contains('Module Remark').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'SCR').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Module Remark').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'TPH').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Location Code Crop Cycle').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '1')
+    cy.get(locator.tableHeader).contains('Location Code Crop Cycle').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '18').and('contain', '1');
   }
 
   // inputFormAddTag() {

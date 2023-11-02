@@ -54,6 +54,9 @@ export class Method {
   confirmSavedData() {
     cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
     cy.get(locator.buttonBtn).contains('Oke').click();
+  }
+
+  checkSavedData() {
     cy.get(locator.tableTerritory).should('contain', 'JTB');
     cy.contains('JTB').parent(locator.rowTable).should('contain', 'Singapura')
     .and('contain', 'Jawa Timur Barat').and('contain', '1').and('contain', 'East Java');

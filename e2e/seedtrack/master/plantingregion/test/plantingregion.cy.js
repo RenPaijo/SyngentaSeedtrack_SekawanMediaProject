@@ -36,7 +36,7 @@ describe("Master Crops", () => {
     step.SYNST_MMPR_001();
   });
 
-  it.only("Validasi tambah data planting region baru", () => {
+  it("Validasi tambah data planting region baru", () => {
     step.SYNST_MMPR_002();
   });
 
@@ -111,6 +111,6 @@ describe("Master Crops", () => {
   });
 
   it("Cleaning Data", () => {
-    step.SYNST_MMPR_012();
+    step.SYNST_MMPR_011();
   })
 });

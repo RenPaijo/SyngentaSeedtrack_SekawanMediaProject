@@ -16,6 +16,7 @@ export class Step {
 		method.submitForm();
 		method.confirmAddForm();
 		method.confirmSavedData();
+		method.checkSavedData();
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
@@ -47,16 +48,9 @@ export class Step {
 	SYNST_MSASP_006(){
 		method.selectData();
 		method.clickDeleteDropdown();
-		// method.confirmDeleteData();
-		// method.checkIfDataGone();
+		method.confirmDeleteData();
+		method.checkIfDataGone();
 	}
-
-	// SYNST_MSASP_014() {
-	// 	method.clickAddBtn();
-	// 	method.inputFormAddTag();
-	// 	method.submitForm();
-	// 	method.confirmAddForm();
-	// }
 
 	SYNST_MSASP_009() {
 		method.sortingData();
