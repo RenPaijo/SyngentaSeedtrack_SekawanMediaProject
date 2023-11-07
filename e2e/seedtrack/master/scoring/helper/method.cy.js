@@ -19,13 +19,13 @@ export class Method {
   inputFormAdd() {
     cy.get(locator.inputName).type('Jenis Cabbage');
 
-    cy.get(locator.inputSelect).contains('Choose Country').click({force: true});
+    cy.get(locator.valueSelect).contains('Choose Country').click({force: true});
     cy.get(locator.selectDropdown).contains('Singapura').click();
     
-    cy.get(locator.inputSelect).contains('Choose Crop').click({force: true});
+    cy.get(locator.valueSelect).contains('Choose Crop').click({force: true});
     cy.get(locator.selectDropdown).contains('Corn').click();
    
-    cy.get(locator.inputSelect).contains('Choose Survey Category Type').click({force: true});
+    cy.get(locator.valueSelect).contains('Choose Survey Category Type').click({force: true});
     cy.get(locator.selectDropdown).contains('Technical').click();
     
   }
@@ -48,7 +48,7 @@ export class Method {
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
     cy.get(locator.buttonBtn).contains('Oke').click();
   }
 
@@ -59,9 +59,9 @@ export class Method {
   }
   
   checkEmptyWarning() {
-    cy.contains('Scoring Name is required').should('be.visible');
+    cy.contains('Name is required').should('be.visible');
     cy.contains('Country is required').should('be.visible');
-    cy.contains('Crop Name is required').should('be.visible');
+    cy.contains('Crops is required').should('be.visible');
     cy.contains('Type is required').should('be.visible');
   }
 
@@ -71,16 +71,16 @@ export class Method {
 
   checkEmptyInput() {
     cy.get(locator.inputName).should('have.value', '');
-    cy.get(locator.inputSelect).contains('Choose Country').should('be.exist');
-    cy.get(locator.inputSelect).contains('Choose Crop').should('be.exist');
-    cy.get(locator.inputSelect).contains('Choose Survey Category Type').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Country').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Crop').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Survey Category Type').should('be.exist');
   }
 
   selectData() {
     cy.get(locator.inputSearch).click().type('Jenis Cabbage');
     cy.wait(1000);
-    cy.get(locator.tableScoring).should('contain', 'Jenis bibit');
-    cy.contains('Jenis bibit').parent(locator.rowTable).find(locator.actionBtn).click();
+    cy.get(locator.tableScoring).should('contain', 'Jenis Cabbage');
+    cy.contains('Jenis Cabbage').parent(locator.rowTable).find(locator.actionBtn).click();
   }
 
   clickEditDropdown() {
@@ -145,17 +145,21 @@ export class Method {
   resetSelect() {
     cy.wait(3000);
     cy.get(locator.resetSelect).click({multiple: true, force: true});
-    cy.get(locator.inputSelect).contains('Choose Country').should('be.exist');
-    cy.get(locator.inputSelect).contains('Choose Crop').should('be.exist');
-    cy.get(locator.inputSelect).contains('Choose Survey Category Type').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Country').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Crop').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Survey Category Type').should('be.exist');
   }
 
+  inputFormAddHtmlTag() {
+    cy.get(locator.inputName).clear().type('<h1>Nama</h1>').should('have.value', '<h1>Nama</h1>');
+  }
 
-
-  // inputFormAddTag() {
-  //   cy.get(locator.inputCode).eq(1).type('<b>CODE</b>').should('have.value', '<b>CODE</b>');
-  //   cy.get(locator.inputName).eq(1).type('<h1>Nama</h1>').should('have.value', '<h1>Nama</h1>');
-  // }
+  selectDataWithHtmlTag() {
+    cy.get(locator.inputSearch).click().type('<h1>Nama</h1>');
+    cy.wait(1000);
+    cy.get(locator.tableScoring).should('contain', '<h1>Nama</h1>');
+    cy.contains('<h1>Nama</h1>').parent(locator.rowTable).find(locator.actionBtn).click();
+  }
 
   
   

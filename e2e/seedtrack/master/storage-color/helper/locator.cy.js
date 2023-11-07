@@ -1,7 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	tableScoring = 'tbody';
+	tableStorage = 'tbody';
 
 	//button
 	genericBtn = 'button'
@@ -13,7 +13,10 @@ export class Locator {
 	inputSearch = 'input[placeholder="Type to search"]';
 	selectDropdown = '.css-1laf4ja-menu';
 	valueSelect = '.css-1n0qa22';
-	inputName = 'input[name="ScoringParameterName"]';
+	inputName = 'input[name="VarietyName"]';
+	inputCode = 'input[name="VarietyCode"]';
+	inputNumber = 'input[name="VarietyNumber"]';
+	importFile = '#small-file-input'
 	resetSelect = '.css-1vbg55u-indicatorContainer'
 
 	//dropdown
@@ -36,6 +39,8 @@ export class Locator {
 	descendedArrow = 'th[class="sorting_desc"]';
 	ascendedArrow = 'th[class="sorting_asc"]';
 	inactiveArrow = 'th[class="sorting"]'
+	paginationBtnContent = 'span[class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"]';
+	paginationDesc = 'p[class="block antialiased font-sans px-4 font-normal text-sm text-gray-400"]'
 
 	//elements that has no unique identifier
 	modalTitleAdd = 'p[class="trans-text-lg"]'
@@ -46,4 +51,5 @@ export class Locator {
 	modalConBody = '.trans-modal-body'
 	modalConfirmDelete = 'div[data-headlessui-state="open"]';
 	modalBodyConfirmDelete = 'p[class="text-sm text-gray-500 w-full text-center"]'
+	exportDropdown = 'button[role="menuitem"]'
 }

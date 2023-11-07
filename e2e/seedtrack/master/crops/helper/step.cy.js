@@ -23,6 +23,7 @@ export class Step {
 		method.submitForm();
 		method.confirmAddForm();
 		method.confirmSavedData();
+		method.checkSavedData();
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
@@ -77,12 +78,17 @@ export class Step {
 		method.checkIfDataGone();
 	}
 
-	// SYNST_MMC_014() {
-	// 	method.clickAddBtn();
-	// 	method.inputFormAddTag();
-	// 	method.submitForm();
-	// 	method.confirmAddForm();
-	// }
+	SYNST_MMC_014() {
+		method.clickAddBtn();
+		method.inputFormAdd();
+		method.inputFormAddHtmlTag();
+		method.submitForm();
+		method.confirmAddForm();
+		method.confirmSavedData();
+		method.selectDataWithHtmlTag();
+		method.clickDeleteDropdown();
+		method.confirmDeleteData();
+ 	}
 
 	SYNST_MMC_015() {
 		method.clickAddBtn();

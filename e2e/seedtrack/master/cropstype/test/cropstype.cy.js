@@ -32,7 +32,7 @@ describe("Master Crops", () => {
     cy.visit("https://portal-syn-seedtrack.skwn.dev/master/crops-type");
   });
 
-  it.only("Validasi search data", () => {
+  it("Validasi search data", () => {
     step.SYNST_MMCT_001();
   });
 

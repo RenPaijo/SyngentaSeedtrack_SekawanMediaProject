@@ -33,84 +33,84 @@ describe("Master Crops", () => {
   });
 
   it("Validasi search data", () => {
-    step.SYNST_MMLC_001();
+    step.SYNST_MMVar_001();
   });
 
   it("Validasi tambah data location code baru", () => {
-    step.SYNST_MMLC_002();
+    step.SYNST_MMVar_002();
   });
 
   it("Validasi tambah data dengan kode yang sudah ada di datatable", () => {
-    step.SYNST_MMLC_014();
+    step.SYNST_MMVar_014();
   });
 
   it("Validasi tambah data location code baru tanpa mengisi input data", () => {
-    step.SYNST_MMLC_003();
+    step.SYNST_MMVar_003();
   });
 
   it("Validasi keluar form tambah data kemudian masuk ke form tambah kembali", () => {
-    step.SYNST_MMLC_004();
+    step.SYNST_MMVar_004();
   });
 
   it("Validasi download template excel", () => {
-    step.SYNST_MMLC_005();
+    step.SYNST_MMVar_005();
   });
 
   it("Validasi import data dengan file excel non-template", () => {
-    step.SYNST_MMLC_006();
+    step.SYNST_MMVar_006();
   });
 
   it.skip("Validasi user ketika upload template yang sesuai tanpa mengisi data", () => {
-    step.SYNST_MMLC_007();
+    step.SYNST_MMVar_007();
   });
 
   it.skip("Validasi user ketika upload template yang sesuai. Tetapi beberapa kolom required tidak diisi", () => {
-    step.SYNST_MMLC_008();
+    step.SYNST_MMVar_008();
   });
 
   it("Validasi import data dengan file non-excel (ekstensi yang tidak didukung)", () => {
-    step.SYNST_MMLC_009();
+    step.SYNST_MMVar_009();
   });
 
   it("Validasi edit data master location code", () => {
-    step.SYNST_MMLC_010();
+    step.SYNST_MMVar_010();
   });
 
   it("Validasi hapus data master location code", () => {
-    step.SYNST_MMLC_011();
+    step.SYNST_MMVar_011();
   });
 
   it.skip("Validasi pagination", () => {
-    step.SYNST_MMLC_012();
+    step.SYNST_MMVar_012();
   });
 
   it.skip("Validasi insert sintaks html di form", () => {
-    step.SYNST_MMLC_013();
+    step.SYNST_MMVar_013();
   });
 
   it.skip("Validasi sorting data", () => {
-    step.SYNST_MMLC_015();
+    step.SYNST_MMVar_015();
   });
   
   it.skip("Validasi refresh menu master location code", () => {
-    step.SYNST_MMLC_016();
+    step.SYNST_MMVar_016();
   });
 
   it.skip("Validasi penulisan dan informasi yang disampaikan di form tambah/edit sudah sesuai", () => {
-    step.SYNST_MMLC_017();
+    step.SYNST_MMVar_017();
   });
 
   it("Cek apakah data sudah benar-benar terhapus atau belum", () => {
-    step.SYNST_MMLC_018();
-    step.SYNST_MMLC_011();
-    step.SYNST_MMLC_018();
+    step.SYNST_MMVar_018();
+    step.SYNST_MMVar_011();
+    step.SYNST_MMVar_018();
   });
 
   it("Validasi upload file tanpa mengimport file apa-apa", () => {
-    step.SYNST_MMLC_019();
+    step.SYNST_MMVar_019();
   });
 
   it("Cleaning Data", () => {
-    step.SYNST_MMLC_011();
+    step.SYNST_MMVar_011();
   })
 });

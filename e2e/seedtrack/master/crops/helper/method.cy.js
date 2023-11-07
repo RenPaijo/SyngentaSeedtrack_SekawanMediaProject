@@ -47,8 +47,11 @@ export class Method {
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
     cy.get(locator.buttonBtn).contains('Oke').click();
+  }
+
+  checkSavedData() {
     cy.get(locator.tableCrops).should('contain', 'CBG');
     cy.contains('CBG').parent(locator.rowTable).should('contain', 'Cabbage');
   }
@@ -66,7 +69,7 @@ export class Method {
     cy.get(locator.submitBtn).contains('Search').click();
     cy.get(locator.tableCrops).should('contain', 'CBG');
     cy.contains('CBG').parent(locator.rowTable).should('contain', 'Cabbage');
-    cy.get(locator.tableCrops).find(locator.rowTable).should('have.length', 2);
+    cy.get(locator.tableCrops).find(locator.rowTable).should('have.length', 1);
   }
 
   filterDownloadAction() {
@@ -183,10 +186,16 @@ export class Method {
     cy.get(locator.rowTable).eq(1).should('contain', 'Carrot update').and('contain', '1');
   }
 
-  // inputFormAddTag() {
-  //   cy.get(locator.inputCode).eq(1).type('<b>CODE</b>').should('have.value', '<b>CODE</b>');
-  //   cy.get(locator.inputName).eq(1).type('<h1>Nama</h1>').should('have.value', '<h1>Nama</h1>');
-  // }
+  inputFormAddHtmlTag() {
+    cy.get(locator.inputName).eq(1).clear().type('<h1>Nama</h1>').should('have.value', '<h1>Nama</h1>');
+  }
+
+  selectDataWithHtmlTag() {
+    cy.get(locator.inputSearch).click().type('<h1>Nama</h1>');
+    cy.wait(1000);
+    cy.get(locator.tableScoring).should('contain', '<h1>Nama</h1>');
+    cy.contains('<h1>Nama</h1>').parent(locator.rowTable).find(locator.actionBtn).click();
+  }
 
   
   

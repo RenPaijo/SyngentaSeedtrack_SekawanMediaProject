@@ -1,7 +1,7 @@
 export class Locator {
 
 	//data master - cropsfieldcode
-	tableUom = 'tbody';
+	tableVariety = 'tbody';
 
 	//button
 	genericBtn = 'button'

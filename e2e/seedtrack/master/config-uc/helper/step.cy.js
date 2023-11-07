@@ -4,12 +4,12 @@ const method = new Method();
 
 export class Step {
 	// search data
-	SYNST_MSASP_001() {
+	SYNST_MMCUC_001() {
 		method.searchAction();
 	}
 
 	// add data
-	SYNST_MSASP_002() {
+	SYNST_MMCUC_002() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -20,13 +20,13 @@ export class Step {
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
-	SYNST_MSASP_003() {
+	SYNST_MMCUC_003() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MSASP_004() {
+	SYNST_MMCUC_004() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();
@@ -34,7 +34,7 @@ export class Step {
 		method.checkEmptyInput();
 	}
 
-	SYNST_MSASP_005(){
+	SYNST_MMCUC_005(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.checkValueInputForm();
@@ -45,30 +45,22 @@ export class Step {
 		method.checkIfNewDataEdited();
 	} 
 
-	SYNST_MSASP_006(){
+	SYNST_MMCUC_006(){
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
-	
-	SYNST_MSASP_008(){
-		method.clickAddBtn();
-		method.inputFormAdd();
-		method.inputFormAddHtmlTag();
-		method.submitForm();
-		method.confirmAddForm();
-		method.confirmSavedData();
-		method.selectDataWithHtmlTag();
-		method.clickDeleteDropdown();
-		method.confirmDeleteData();
+
+	SYNST_MMCUC_007(){
+		method.checkPagination();
 	}
 
-	SYNST_MSASP_009() {
+	SYNST_MMCUC_009() {
 		method.sortingData();
 	}
 
-	SYNST_MSASP_011() {
+	SYNST_MMCUC_011() {
 		method.selectData();
 		method.clickEditDropdown();
 		method.resetSelect();

@@ -4,12 +4,12 @@ const method = new Method();
 
 export class Step {
 	// search data
-	SYNST_MSASP_001() {
+	SYNST_MMVen_001() {
 		method.searchAction();
 	}
 
 	// add data
-	SYNST_MSASP_002() {
+	SYNST_MMVen_002() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -20,13 +20,13 @@ export class Step {
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
-	SYNST_MSASP_003() {
+	SYNST_MMVen_003() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MSASP_004() {
+	SYNST_MMVen_004() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();
@@ -34,7 +34,26 @@ export class Step {
 		method.checkEmptyInput();
 	}
 
-	SYNST_MSASP_005(){
+	SYNST_MMVen_005() {
+		method.clickDownloadBtn();
+	}
+    
+	// Login Aplikasi dengan Username dan Password Tidak Sesuai
+	SYNST_MMVen_006() {
+		method.clickImportBtn();
+		method.importOtherXlsx();
+		method.uploadImportBtn();
+		method.checkModalError();
+	}
+
+	SYNST_MMVen_009(){
+		method.clickImportBtn();
+		method.importUnsupportedFile();
+		method.uploadImportBtn();
+		method.checkModalError();
+	} 	
+
+	SYNST_MMVen_010(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.checkValueInputForm();
@@ -45,33 +64,43 @@ export class Step {
 		method.checkIfNewDataEdited();
 	} 
 
-	SYNST_MSASP_006(){
+	SYNST_MMVen_011(){
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
-	
-	SYNST_MSASP_008(){
-		method.clickAddBtn();
-		method.inputFormAdd();
-		method.inputFormAddHtmlTag();
-		method.submitForm();
-		method.confirmAddForm();
-		method.confirmSavedData();
-		method.selectDataWithHtmlTag();
-		method.clickDeleteDropdown();
-		method.confirmDeleteData();
+
+	SYNST_MMVen_012(){
+		method.checkPagination();
 	}
 
-	SYNST_MSASP_009() {
+	SYNST_MMVen_014() {
+		method.clickAddBtn();
+		method.inputFormAdd();
+		method.submitForm();
+		method.confirmAddForm();
+		method.confirmFailedData();
+		method.checkSavedData();
+	}
+
+	SYNST_MMVen_015() {
 		method.sortingData();
 	}
 
-	SYNST_MSASP_011() {
-		method.selectData();
-		method.clickEditDropdown();
-		method.resetSelect();
+	SYNST_MMVen_018() {
+		method.clickAddBtn();
+		method.inputFormAdd();
+		method.checkValueInputForm();
+		method.submitForm();
+		method.confirmAddForm();
+		method.confirmSavedData()
+	}
+
+	SYNST_MMVen_019() {
+		method.clickImportBtn();
+		method.uploadImportBtn();
+		method.checkModalError();
 	}
 
 }

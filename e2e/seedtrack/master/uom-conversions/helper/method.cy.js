@@ -1,22 +1,15 @@
 import { Locator } from "./locator.cy";
-import { generateString } from "./random.cy";
 
 const locator = new Locator(); // diimport dari file locator.cy.js yg sebelumnya dibuat
-const correctXlsxPath = './cypress/fixtures/template_master_jenis_padi.xlsx'
-const nonTemplateXlsxPath = './cypress/fixtures/seedtrack/non-template.xlsx'
-const unsupportedPath = './cypress/fixtures/seedtrack/unsupported.pdf'
-
-const randstring = generateString(6);
-const randomstring = `${randstring}`;
+const correctXlsxPath = './cypress/fixtures/template_master_jenis_padi.xlsx';
+const nonTemplateXlsxPath = './cypress/fixtures/seedtrack/non-template.xlsx';
+const unsupportedPath = './cypress/fixtures/seedtrack/unsupported.pdf';
 
 export class Method {
   //method untuk aksi search
   searchAction() {
-    cy.get('div[class="h-fit"]').contains('Master Crops Type').should('be.exist');
-    cy.get(locator.inputSearch).click().type('SCORN');
-    cy.wait(1000);
-    cy.get(locator.tableCropsType).should('contain', 'SCORN');
-    cy.get(locator.tableCropsType).find(locator.rowTable).should('have.length', 1);
+    cy.get(locator.inputSearch).click().type('Miligram');
+    cy.get(locator.tableUom).should('contain', 'Miligram');
   }
 
   clickAddBtn() {
@@ -25,18 +18,20 @@ export class Method {
   }
 
   inputFormAdd() {
-    cy.get(locator.inputSelect).contains('Choose Crops Code').click({force: true});
-    cy.get(locator.selectDropdown).contains('ONION').click();
+    cy.get(locator.inputName).type('0.001');
 
-    cy.get(locator.inputCode).type(randomstring);
-    cy.get(locator.inputName).type('Bawang');
+    cy.get(locator.valueSelect).contains('trans-form-placeholder-uom-con-from-id').click({force: true});
+    cy.get(locator.selectDropdown).contains('Litre').click();
+
+    cy.get(locator.valueSelect).contains('trans-form-placeholder-uom-con-target-id').click({force: true});
+    cy.get(locator.selectDropdown).contains('KiloLitre').click();
   }
 
   checkValueInputForm() {
-    cy.get(locator.valueSelect).contains('ONION').should('be.exist');
+    cy.get(locator.inputName).should('have.value', '0.001');
 
-    cy.get(locator.inputCode).should('have.value', randomstring);
-    cy.get(locator.inputName).should('have.value', 'Bawang');
+    cy.get(locator.valueSelect).contains('Litre').should('be.exist');
+    cy.get(locator.valueSelect).contains('KiloLitre').should('be.exist');
   }
 
   submitForm() {
@@ -54,14 +49,14 @@ export class Method {
   }
 
   checkSavedData() {
-    cy.get(locator.tableCropsType).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Bawang').and('contain', 'Onion Update');
+    cy.get(locator.tableUom).should('contain', 'Litre');
+    cy.contains('Litre').parent(locator.rowTable).should('contain', '0.001');
   }
 
   checkEmptyWarning() {
-    cy.contains('Crop Code is required').should('be.visible');
-    cy.contains('Name is required').should('be.visible');
-    cy.contains('Code is required').should('be.visible');
+    cy.contains('Conversion Factor is required').should('be.visible');
+    cy.contains('Uom From is required').should('be.visible');
+    cy.contains('Uom Target is required').should('be.visible');
   }
 
   closeAddForm() {
@@ -69,9 +64,9 @@ export class Method {
   }
 
   checkEmptyInput() {
-    cy.get(locator.inputSelect).contains('Choose Crops Code').should('be.exist');
+    cy.get(locator.valueSelect).contains('trans-form-placeholder-uom-con-from-id').should('be.exist');
+    cy.get(locator.valueSelect).contains('trans-form-placeholder-uom-con-target-id').should('be.exist');
 
-    cy.get(locator.inputCode).should('have.value', '');
     cy.get(locator.inputName).should('have.value', '');
   }
 
@@ -102,10 +97,10 @@ export class Method {
   }
 
   selectData() {
-    cy.get(locator.inputSearch).click().type(randomstring);
+    cy.get(locator.inputSearch).click().type('Litre');
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).find(locator.actionBtn).first().click();
+    cy.get(locator.tableUom).should('contain', 'Litre');
+    cy.contains('Litre').parent(locator.rowTable).find(locator.actionBtn).first().click();
   }
 
   clickEditDropdown() {
@@ -117,11 +112,13 @@ export class Method {
   }
 
   changeValue() {
-    cy.get(locator.valueSelect).contains('ONION').click({force: true});
-    cy.get(locator.selectDropdown).contains('MELON').click();
+    cy.get(locator.inputName).type('1000');
 
-    cy.get(locator.inputCode).type('-M');
-    cy.get(locator.inputName).clear().type('Melon Baru');
+    cy.get(locator.valueSelect).contains('Litre').click({force: true});
+    cy.get(locator.selectDropdown).contains('KiloLitre').click();
+
+    cy.get(locator.valueSelect).contains('KiloLitre').eq(1).click({force: true});
+    cy.get(locator.selectDropdown).contains('Litre').click();
   }
 
   confirmEditedData() {
@@ -130,11 +127,10 @@ export class Method {
   }
 
   checkIfNewDataEdited() {
-    cy.get(locator.inputSearch).click().clear().type(randomstring);
+    cy.get(locator.inputSearch).click().clear().type('KiloLitre');
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('contain', randomstring);
-    cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Melon')
-    .and('contain', 'Melon Baru');
+    cy.get(locator.tableUom).should('contain', 'KiloLitre');
+    cy.contains('KiloLitre').parent(locator.rowTable).should('contain', '1000');
   }
 
   confirmDeleteData() {
@@ -145,9 +141,9 @@ export class Method {
   }
 
   checkIfDataGone() {
-    cy.get(locator.inputSearch).click().clear().type(randomstring);
+    cy.get(locator.inputSearch).click().clear().type('Litre');
     cy.wait(1000);
-    cy.get(locator.tableCropsType).should('not.contain', randomstring);
+    cy.get(locator.tableUom).should('not.contain', 'Litre');
   }
 
   checkPagination() {
@@ -161,20 +157,20 @@ export class Method {
   }
 
   sortingData() {
-    cy.get(locator.tableHeader).contains('Crops Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Carrot Update').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Crops Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Tomato').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Uom From').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'Gram').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Uom From').click();
+    cy.get(locator.rowTable).eq(1).should('contain', 'Miligram').and('contain', '1');
 
-    cy.get(locator.tableHeader).contains('Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'RC').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Code').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'WORTEL').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Uom Target').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '37').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Uom Target').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '79').and('contain', '1');
 
-    cy.get(locator.tableHeader).contains('Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Raw Corn').and('contain', '1');
-    cy.get(locator.tableHeader).contains('Name').click();
-    cy.get(locator.rowTable).eq(1).should('contain', 'Wortel').and('contain', '1');
+    cy.get(locator.tableHeader).contains('Conversion Factor').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '0.001')
+    cy.get(locator.tableHeader).contains('Conversion Factor').click();
+    cy.get(locator.rowTable).eq(1).should('contain', '1000000').and('contain', '1');
   }
 
   // inputFormAddTag() {

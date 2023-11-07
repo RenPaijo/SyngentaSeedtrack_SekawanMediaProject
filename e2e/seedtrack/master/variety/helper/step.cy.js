@@ -4,12 +4,12 @@ const method = new Method();
 
 export class Step {
 	// search data
-	SYNST_MMLC_001() {
+	SYNST_MMVar_001() {
 		method.searchAction();
 	}
 
 	// add data
-	SYNST_MMLC_002() {
+	SYNST_MMVar_002() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -20,13 +20,13 @@ export class Step {
 	}
 
 	// Login Aplikasi dengan Username Benar dan Password Salah
-	SYNST_MMLC_003() {
+	SYNST_MMVar_003() {
 		method.clickAddBtn();
 		method.submitForm();
 		method.checkEmptyWarning();
 	}
 
-	SYNST_MMLC_004() {
+	SYNST_MMVar_004() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.closeAddForm();
@@ -34,26 +34,26 @@ export class Step {
 		method.checkEmptyInput();
 	}
 
-	SYNST_MMLC_005() {
+	SYNST_MMVar_005() {
 		method.clickDownloadBtn();
 	}
     
 	// Login Aplikasi dengan Username dan Password Tidak Sesuai
-	SYNST_MMLC_006() {
+	SYNST_MMVar_006() {
 		method.clickImportBtn();
 		method.importOtherXlsx();
 		method.uploadImportBtn();
 		method.checkModalError();
 	}
 
-	SYNST_MMLC_009(){
+	SYNST_MMVar_009(){
 		method.clickImportBtn();
 		method.importUnsupportedFile();
 		method.uploadImportBtn();
 		method.checkModalError();
 	} 	
 
-	SYNST_MMLC_010(){
+	SYNST_MMVar_010(){
 		method.selectData();
 		method.clickEditDropdown();
 		method.checkValueInputForm();
@@ -64,18 +64,18 @@ export class Step {
 		method.checkIfNewDataEdited();
 	} 
 
-	SYNST_MMLC_011(){
+	SYNST_MMVar_011(){
 		method.selectData();
 		method.clickDeleteDropdown();
 		method.confirmDeleteData();
 		method.checkIfDataGone();
 	}
 
-	SYNST_MMLC_012(){
+	SYNST_MMVar_012(){
 		method.checkPagination();
 	}
 
-	SYNST_MMLC_014() {
+	SYNST_MMVar_014() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.submitForm();
@@ -84,11 +84,11 @@ export class Step {
 		method.checkSavedData();
 	}
 
-	SYNST_MMLC_015() {
+	SYNST_MMVar_015() {
 		method.sortingData();
 	}
 
-	SYNST_MMLC_018() {
+	SYNST_MMVar_018() {
 		method.clickAddBtn();
 		method.inputFormAdd();
 		method.checkValueInputForm();
@@ -97,7 +97,7 @@ export class Step {
 		method.confirmSavedData()
 	}
 
-	SYNST_MMLC_019() {
+	SYNST_MMVar_019() {
 		method.clickImportBtn();
 		method.uploadImportBtn();
 		method.checkModalError();

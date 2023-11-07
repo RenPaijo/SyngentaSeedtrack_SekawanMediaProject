@@ -5,6 +5,7 @@ const step = new Step();
 describe("Master Crops", () => {
   beforeEach("passes", () => {
     cy.viewport(1366, 768);
+    cy.visit("https://portal-syn-seedtrack.skwn.dev/");
     cy.session("Crops", () => {
       cy.api({
         method: "POST",
@@ -28,95 +29,88 @@ describe("Master Crops", () => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       return false;
     });
-    cy.visit("https://portal-syn-seedtrack.skwn.dev/");
-    cy.visit("https://portal-syn-seedtrack.skwn.dev/master/crops");
+    cy.visit("https://portal-syn-seedtrack.skwn.dev/master/vendor");
   });
 
   it("Validasi search data", () => {
-    step.SYNST_MMC_001();
+    step.SYNST_MMVen_001();
   });
 
-  it("Validasi tambah data crops baru", () => {
-    step.SYNST_MMC_003();
-  });
-
-  it("Validasi filter data", () => {
-    step.SYNST_MMC_002();
+  it("Validasi tambah data location code baru", () => {
+    step.SYNST_MMVen_002();
   });
 
   it("Validasi tambah data dengan kode yang sudah ada di datatable", () => {
-    step.SYNST_MMC_015();
+    step.SYNST_MMVen_014();
   });
 
-  it("Validasi tambah data crops baru tanpa mengisi input data", () => {
-    step.SYNST_MMC_004();
+  it.only("Validasi tambah data location code baru tanpa mengisi input data", () => {
+    step.SYNST_MMVen_003();
   });
 
   it("Validasi keluar form tambah data kemudian masuk ke form tambah kembali", () => {
-    step.SYNST_MMC_005();
+    step.SYNST_MMVen_004();
   });
 
   it("Validasi download template excel", () => {
-    step.SYNST_MMC_006();
+    step.SYNST_MMVen_005();
   });
 
   it("Validasi import data dengan file excel non-template", () => {
-    step.SYNST_MMC_007();
+    step.SYNST_MMVen_006();
   });
 
   it.skip("Validasi user ketika upload template yang sesuai tanpa mengisi data", () => {
-    step.SYNST_MMC_008();
+    step.SYNST_MMVen_007();
   });
 
   it.skip("Validasi user ketika upload template yang sesuai. Tetapi beberapa kolom required tidak diisi", () => {
-    step.SYNST_MMC_009();
+    step.SYNST_MMVen_008();
   });
 
   it("Validasi import data dengan file non-excel (ekstensi yang tidak didukung)", () => {
-    step.SYNST_MMC_010();
+    step.SYNST_MMVen_009();
   });
 
-  it("Validasi edit data master crops", () => {
-    step.SYNST_MMC_011();
+  it("Validasi edit data master location code", () => {
+    step.SYNST_MMVen_010();
   });
 
-  it("Validasi hapus data master crops", () => {
-    step.SYNST_MMC_012();
+  it("Validasi hapus data master location code", () => {
+    step.SYNST_MMVen_011();
   });
 
   it.skip("Validasi pagination", () => {
-    step.SYNST_MMC_013();
+    step.SYNST_MMVen_012();
   });
 
-  it.only("Validasi insert sintaks html di form", () => {
-    step.SYNST_MMC_014();
+  it.skip("Validasi insert sintaks html di form", () => {
+    step.SYNST_MMVen_013();
   });
 
-  it("Validasi sorting data", () => {
-    step.SYNST_MMC_016();
+  it.skip("Validasi sorting data", () => {
+    step.SYNST_MMVen_015();
   });
   
-  it.skip("Validasi refresh menu master crops", () => {
-    step.SYNST_MMC_017();
+  it.skip("Validasi refresh menu master location code", () => {
+    step.SYNST_MMVen_016();
   });
 
   it.skip("Validasi penulisan dan informasi yang disampaikan di form tambah/edit sudah sesuai", () => {
-    step.SYNST_MMC_018();
+    step.SYNST_MMVen_017();
   });
 
   it("Cek apakah data sudah benar-benar terhapus atau belum", () => {
-    step.SYNST_MMC_019();
+    step.SYNST_MMVen_018();
+    step.SYNST_MMVen_011();
+    step.SYNST_MMVen_018();
   });
 
   it("Validasi upload file tanpa mengimport file apa-apa", () => {
-    step.SYNST_MMC_020();
-  });
-
-  it.skip("Validasi penulisan dan informasi yang disampaikan di form import sudah sesuai", () => {
-    step.SYNST_MMC_021();
+    step.SYNST_MMVen_019();
   });
 
   it("Cleaning Data", () => {
-    step.SYNST_MMC_012();
+    step.SYNST_MMVen_011();
   })
 });
