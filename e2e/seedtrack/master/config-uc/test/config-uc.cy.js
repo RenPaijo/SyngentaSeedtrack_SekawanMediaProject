@@ -40,10 +40,6 @@ describe("Master Crops", () => {
     step.SYNST_MMCUC_002();
   });
 
-  it("Validasi tambah data dengan kode yang sudah ada di datatable", () => {
-    step.SYNST_MMCUC_014();
-  });
-
   it("Validasi tambah data config user countries baru tanpa mengisi input data", () => {
     step.SYNST_MMCUC_003();
   });

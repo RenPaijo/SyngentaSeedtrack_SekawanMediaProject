@@ -66,7 +66,7 @@ export class Step {
 		method.checkCorrectInputValue();
 		method.changeValue();
 		method.submitForm();
-		method.confirmAddForm();
+		method.confirmEditForm();
 		method.confirmEditedData();
 		method.checkIfNewDataEdited();
 	} 
@@ -96,6 +96,7 @@ export class Step {
 		method.submitForm();
 		method.confirmAddForm();
 		method.confirmFailedData();
+		method.checkSavedData();
 	}
 
 	SYNST_MMC_016() {

@@ -88,7 +88,7 @@ describe("Master Crops", () => {
     step.SYNST_MMC_013();
   });
 
-  it.only("Validasi insert sintaks html di form", () => {
+  it("Validasi insert sintaks html di form", () => {
     step.SYNST_MMC_014();
   });
 

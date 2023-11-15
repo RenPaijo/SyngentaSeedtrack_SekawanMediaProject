@@ -16,12 +16,12 @@ export class Locator {
 	inputName = 'input[name="CsName"]';
 	inputCode = 'input[name="CsCode"]';
 	inputYear = 'input[name="CsYear"]';
-	inputRemark = 'input[name="CsRemark"]';
+	inputRemark = 'textarea[name="CsRemark"]';
 	importFile = '#small-file-input';
 	resetSelect = '.css-1vbg55u-indicatorContainer';
 	inputDate = 'input[placeholder="Enter Start Date - End Date"]';
 	datePicker = '.react-datepicker';
-	datePickerMonthContainer = '.react-datepicker__month-container';
+	datePickerMonthContainer = '.react-datepicker__month';
 	datePickerDay = '.react-datepicker__day';
 
 	//dropdown
@@ -51,10 +51,9 @@ export class Locator {
 	modalTitleAdd = 'p[class="trans-text-lg"]'
 	modalTitleImport = 'p[class="font-medium text-sm"]'
 	modalClose = 'svg[class="cursor-pointer"]'
-	modalCon = '#myModal'
-	modalConTitle = '.trans-modal-title'
+	modalCon = 'div[id*="headlessui-dialog-panel"]'
+	modalConTitle = 'h3[id*="headlessui-dialog-title"]'
 	modalConBody = '.trans-modal-body'
-	modalConfirmDelete = 'div[data-headlessui-state="open"]';
-	modalBodyConfirmDelete = 'p[class="text-sm text-gray-500 w-full text-center"]'
+	modalBodyConfirm = 'p[class="text-sm text-gray-500 w-full text-center"]'
 	exportDropdown = 'button[role="menuitem"]'
 }

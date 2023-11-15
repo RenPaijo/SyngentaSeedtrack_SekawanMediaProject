@@ -14,8 +14,8 @@ export class Method {
   searchAction() {
     cy.get('div[class="h-fit"]').contains('Planting Region').should('be.exist');
     cy.get(locator.inputSearch).click().type('SCR');
-    cy.get(locator.tableUom).should('contain', 'SCR');
-    cy.get(locator.tableUom).find(locator.rowTable).should('have.length', 1);
+    cy.get(locator.tablePr).should('contain', 'SCR');
+    cy.get(locator.tablePr).find(locator.rowTable).should('have.length', 1);
   }
 
   clickAddBtn() {
@@ -47,17 +47,18 @@ export class Method {
   }
 
   confirmAddForm() {
-    cy.get(locator.modalCon).find(locator.modalConBody).should('contain', 'Are you sure want to save data?')
-    cy.get(locator.submitBtn).contains('Confirm').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-create')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data Created Successfully!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been created');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkSavedData() {
-    cy.get(locator.tableUom).should('contain', randomstring);
+    cy.get(locator.tablePr).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Onion Update')
     .and('contain', 'Indonesia').and('contain', 'Onion');
   }
@@ -110,7 +111,7 @@ export class Method {
   selectData() {
     cy.get(locator.inputSearch).click().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableUom).should('contain', randomstring);
+    cy.get(locator.tablePr).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).find(locator.actionBtn).first().click();
   }
 
@@ -120,6 +121,11 @@ export class Method {
 
   clickDeleteDropdown() {
     cy.get(locator.dropdown).contains('Delete').click();
+  }
+    
+  confirmEditForm() {
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-update')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
   }
 
   changeValue() {
@@ -134,29 +140,31 @@ export class Method {
   }
 
   confirmEditedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'The data has been updated!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
+  
 
   checkIfNewDataEdited() {
     cy.get(locator.inputSearch).click().clear().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableUom).should('contain', randomstring);
+    cy.get(locator.tablePr).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Rice')
     .and('contain', 'Vietnam').and('contain', 'Beras Unggul');
   }
 
   confirmDeleteData() {
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'Are you sure want to delete this data?')
-    cy.get(locator.buttonBtn).contains('Yes, sure').click();
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'The data has been deleted');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'Are you sure want to delete this data?')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been deleted');
     cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkIfDataGone() {
     cy.get(locator.inputSearch).click().clear().type(randomstring);
     cy.wait(1000);
-    cy.get(locator.tableUom).should('not.contain', randomstring);
+    cy.get(locator.tablePr).should('not.contain', randomstring);
   }
 
   checkPagination() {
@@ -165,8 +173,9 @@ export class Method {
   }
 
   confirmFailedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed to save data');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed Create Data!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data failed to create!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   sortingData() {

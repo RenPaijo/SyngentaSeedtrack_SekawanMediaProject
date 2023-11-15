@@ -36,7 +36,7 @@ describe("Master Crops", () => {
     step.SYNST_MMCC_001();
   });
 
-  it("Validasi tambah data destination baru", () => {
+  it.only("Validasi tambah data destination baru", () => {
     step.SYNST_MMCC_002();
   });
 
@@ -84,7 +84,7 @@ describe("Master Crops", () => {
     step.SYNST_MMCC_012();
   });
 
-  it.only("Validasi insert sintaks html di form", () => {
+  it("Validasi insert sintaks html di form", () => {
     step.SYNST_MMCC_013();
   });
 

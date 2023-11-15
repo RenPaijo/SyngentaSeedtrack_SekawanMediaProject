@@ -26,29 +26,29 @@ export class Method {
     cy.get(locator.valueSelect).contains('Choose Country').click({force: true});
     cy.get(locator.selectDropdown).contains('Vietnam').click();
 
-    cy.get(locator.valueSelect).contains('Choose Crops').click({force: true});
+    cy.get(locator.valueSelect).contains('Choose Crop').click({force: true});
     cy.get(locator.selectDropdown).contains('Carrot update').click();
 
-    cy.get(locator.valueSelect).contains('Choose Type').click({force: true});
-    cy.get(locator.selectDropdown).contains('Wortel').click();
+    cy.get(locator.valueSelect).contains('Choose Season').click({force: true});
+    cy.get(locator.selectDropdown).contains('Wet').click();
 
     cy.get(locator.inputCode).type(randomstring);
     cy.get(locator.inputName).type('Carrot season');
-    cy.get(locator.inputYear).type('2024');
+    cy.get(locator.inputYear).type('2024').type('{enter}');
+    cy.get(locator.inputRemark).type('ini remark');
 
     cy.get(locator.inputDate).click();
-    cy.get(locator.datePicker).find(locator.datePickerMonthContainer).eq(0)
+    cy.get(locator.datePicker).find(locator.datePickerMonthContainer)
     .find(locator.datePickerDay).contains('20').click();
-    cy.get(locator.datePicker).find(locator.datePickerMonthContainer).eq(1)
+    cy.get(locator.datePicker).find(locator.datePickerMonthContainer)
     .find(locator.datePickerDay).contains('21').click();
-    
-    cy.get(locator.inputRemark).type('ini remark');
+
   }
 
   checkValueInputForm() {
     cy.get(locator.valueSelect).contains('Vietnam').should('be.exist');
     cy.get(locator.valueSelect).contains('Carrot update').should('be.exist');
-    cy.get(locator.valueSelect).contains('Wortel').should('be.exist');
+    cy.get(locator.valueSelect).contains('Wet').should('be.exist');
 
     cy.get(locator.inputCode).should('have.value', randomstring);
     cy.get(locator.inputName).should('have.value', 'Carrot season');
@@ -62,20 +62,21 @@ export class Method {
   }
 
   confirmAddForm() {
-    cy.get(locator.modalCon).find(locator.modalConBody).should('contain', 'Are you sure want to save data?')
-    cy.get(locator.submitBtn).contains('Confirm').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-create')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been saved');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data Created Successfully!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been created');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkSavedData() {
     cy.get(locator.tableCropsCycles).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Vietnam')
     .and('contain', 'CARROT').and('contain','2024').and('contain', 'Carrot season')
-    .and('contain', 'ini remark');
+    .and('contain', 'ini remark').and('contain', 'Wet').and('contain', '-20').and('contain', '-21');
   }
 
   checkEmptyWarning() {
@@ -85,7 +86,7 @@ export class Method {
     cy.contains('Code is required').should('be.visible');
     cy.contains('Year is required').should('be.visible');
     cy.contains('Name is required').should('be.visible');
-    cy.contains('Date Start is required').should('be.visible');
+    cy.contains('Date is required').should('be.visible');
     cy.contains('Remark is required').should('be.visible');
   }
 
@@ -95,8 +96,8 @@ export class Method {
 
   checkEmptyInput() {
     cy.get(locator.valueSelect).contains('Choose Country').should('be.exist');
-    cy.get(locator.valueSelect).contains('Choose Crops').should('be.exist');
-    cy.get(locator.valueSelect).contains('Choose Type').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Crop').should('be.exist');
+    cy.get(locator.valueSelect).contains('Choose Season').should('be.exist');
 
     cy.get(locator.inputCode).should('have.value', '');
     cy.get(locator.inputYear).should('have.value', '');
@@ -146,6 +147,12 @@ export class Method {
     cy.get(locator.dropdown).contains('Delete').click();
   }
 
+  
+  confirmEditForm() {
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-update')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+  }
+
   changeValue() {
     cy.get(locator.valueSelect).contains('Vietnam').click({force: true});
     cy.get(locator.selectDropdown).contains('Laos').click();
@@ -153,24 +160,24 @@ export class Method {
     cy.get(locator.valueSelect).contains('Carrot update').click({force: true});
     cy.get(locator.selectDropdown).contains('Onion Update').click();
 
-    cy.get(locator.valueSelect).contains('Wortel').click({force: true});
-    cy.get(locator.selectDropdown).contains('Red Chilli').click();
+    cy.get(locator.valueSelect).contains('Wet').click({force: true});
+    cy.get(locator.selectDropdown).contains('Dry').click();
 
     cy.get(locator.inputCode).type('-M');
     cy.get(locator.inputYear).clear().type('2023');
     cy.get(locator.inputName).clear().type('Cabe Bawang season');
 
-    cy.get(locator.datePicker).find(locator.datePickerMonthContainer).eq(0)
+    cy.get(locator.datePicker).find(locator.datePickerMonthContainer)
     .find(locator.datePickerDay).contains('10').click();
-    cy.get(locator.datePicker).find(locator.datePickerMonthContainer).eq(1)
+    cy.get(locator.datePicker).find(locator.datePickerMonthContainer)
     .find(locator.datePickerDay).contains('11').click();
 
     cy.get(locator.inputRemark).clear().type('remark baru');
   }
 
   confirmEditedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'The data has been updated!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkIfNewDataEdited() {
@@ -179,13 +186,14 @@ export class Method {
     cy.get(locator.tableCropsCycles).should('contain', randomstring);
     cy.contains(randomstring).parent(locator.rowTable).should('contain', 'Laos')
     .and('contain', 'ONION').and('contain','2023').and('contain', 'Cabe Bawang season')
-    .and('contain', 'remark baru');
+    .and('contain', 'remark baru').and('contain', 'Dry').and('contain', '-10').and('contain', '-11');
   }
 
   confirmDeleteData() {
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'Are you sure want to delete this data?')
-    cy.get(locator.buttonBtn).contains('Yes, sure').click();
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'The data has been deleted');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'Are you sure want to delete this data?')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been deleted');
     cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
@@ -201,8 +209,9 @@ export class Method {
   }
 
   confirmFailedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed to save data');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed Create Data!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data failed to create!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   sortingData() {
@@ -217,9 +226,9 @@ export class Method {
     cy.get(locator.rowTable).eq(1).should('contain', 'CORN').and('contain', '1');
 
     cy.get(locator.tableHeader).contains('Type').click();
-    cy.get(locator.rowTable).eq(1).should('contain', '1').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'Dry').and('contain', '1');
     cy.get(locator.tableHeader).contains('Type').click();
-    cy.get(locator.rowTable).eq(1).should('contain', '4').and('contain', '1');
+    cy.get(locator.rowTable).eq(1).should('contain', 'Wet').and('contain', '1');
 
     cy.get(locator.tableHeader).contains('Code').click();
     cy.get(locator.rowTable).eq(1).should('contain', 'SBY').and('contain', '1');
@@ -259,7 +268,7 @@ export class Method {
   selectDataWithHtmlTag() {
     cy.get(locator.inputSearch).click().type('<h1>Nama</h1>');
     cy.wait(1000);
-    cy.get(locator.tableScoring).should('contain', '<h1>Nama</h1>');
+    cy.get(locator.tableCropsCycles).should('contain', '<h1>Nama</h1>');
     cy.contains('<h1>Nama</h1>').parent(locator.rowTable).find(locator.actionBtn).click();
   }
   

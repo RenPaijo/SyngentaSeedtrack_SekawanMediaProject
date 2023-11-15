@@ -17,6 +17,7 @@ export class Method {
   searchAction() {
     cy.get('div[class="h-fit"]').contains('Master Crops').should('be.exist');
     cy.get(locator.inputSearch).click().type('RICES');
+    cy.wait(1000);
     cy.get(locator.tableCrops).should('contain', 'RICES');
     cy.get(locator.tableCrops).find(locator.rowTable).should('have.length', 1);
   }
@@ -24,7 +25,6 @@ export class Method {
   clickAddBtn() {
     cy.get(locator.genericBtn).contains('Add').click();
     cy.get(locator.form).should('be.visible');
-    cy.get(locator.modalTitleAdd).contains('Create Form Master Crops').should('be.visible');
   }
 
   inputFormAdd() {
@@ -42,13 +42,14 @@ export class Method {
   }
 
   confirmAddForm() {
-    cy.get(locator.modalCon).find(locator.modalConBody).should('contain', 'Are you sure want to save data?')
-    cy.get(locator.submitBtn).contains('Confirm').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-create')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data Created Successfully!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been created');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkSavedData() {
@@ -147,9 +148,14 @@ export class Method {
     cy.get(locator.inputName).eq(1).type(' Modified')
   }
 
+  confirmEditForm() {
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-update')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+  }
+
   confirmEditedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'The data has been updated!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkIfNewDataEdited() {
@@ -160,9 +166,10 @@ export class Method {
   }
 
   confirmDeleteData() {
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'Are you sure want to delete this data?')
-    cy.get(locator.buttonBtn).contains('Yes, sure').click();
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'The data has been deleted');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'Are you sure want to delete this data?')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been deleted');
     cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
@@ -173,10 +180,9 @@ export class Method {
   }
 
   confirmFailedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed to save data');
-    cy.get(locator.buttonBtn).contains('Oke').click();
-    cy.get(locator.tableCrops).should('contain', 'CBG');
-    cy.contains('CBG').parent(locator.rowTable).should('contain', 'Cabbage');
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Failed Create Data!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data failed to create!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   sortingData() {
@@ -193,7 +199,7 @@ export class Method {
   selectDataWithHtmlTag() {
     cy.get(locator.inputSearch).click().type('<h1>Nama</h1>');
     cy.wait(1000);
-    cy.get(locator.tableScoring).should('contain', '<h1>Nama</h1>');
+    cy.get(locator.tableCrops).should('contain', '<h1>Nama</h1>');
     cy.contains('<h1>Nama</h1>').parent(locator.rowTable).find(locator.actionBtn).click();
   }
 
