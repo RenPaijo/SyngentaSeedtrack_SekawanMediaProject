@@ -43,13 +43,14 @@ export class Method {
   }
 
   confirmAddForm() {
-    cy.get(locator.modalCon).find(locator.modalConBody).should('contain', 'Are you sure want to save data?')
-    cy.get(locator.submitBtn).contains('Confirm').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-create')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
   }
 
   confirmSavedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data Created Successfully!');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been created');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkSavedData() {
@@ -91,6 +92,11 @@ export class Method {
     cy.get(locator.dropdown).contains('Delete').click();
   }
 
+  confirmEditForm() {
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-update')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+  }
+
   changeValue() {
     cy.get(locator.inputName).type(' Modified');
 
@@ -106,8 +112,8 @@ export class Method {
   }
 
   confirmEditedData() {
-    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
-    cy.get(locator.buttonBtn).contains('Oke').click();
+    cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'The data has been updated!');
+    cy.get(locator.buttonBtn).contains('Okay').click();
   }
 
   checkIfNewDataEdited() {
@@ -119,9 +125,10 @@ export class Method {
   }
 
   confirmDeleteData() {
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'Are you sure want to delete this data?')
-    cy.get(locator.buttonBtn).contains('Yes, sure').click();
-    cy.get(locator.modalConfirmDelete).find(locator.modalBodyConfirmDelete).should('contain', 'The data has been deleted');
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'Are you sure want to delete this data?')
+    cy.get(locator.submitBtn).contains('Yes, sure').click();
+
+    cy.get(locator.modalCon).find(locator.modalBodyConfirm).should('contain', 'The data has been deleted');
     cy.get(locator.buttonBtn).contains('Okay').click();
   }
 

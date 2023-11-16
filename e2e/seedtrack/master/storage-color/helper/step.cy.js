@@ -59,7 +59,7 @@ export class Step {
 		method.checkValueInputForm();
 		method.changeValue();
 		method.submitForm();
-		method.confirmAddForm();
+		method.confirmEditForm();
 		method.confirmEditedData();
 		method.checkIfNewDataEdited();
 	} 

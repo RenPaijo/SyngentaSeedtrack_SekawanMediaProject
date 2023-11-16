@@ -146,7 +146,6 @@ export class Method {
   clickDeleteDropdown() {
     cy.get(locator.dropdown).contains('Delete').click();
   }
-
   
   confirmEditForm() {
     cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'trans-modal-message-confirm-update')
