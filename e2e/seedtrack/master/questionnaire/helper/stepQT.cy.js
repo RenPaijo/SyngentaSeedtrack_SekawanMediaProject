@@ -6,8 +6,8 @@ export class Step{
     // Add data valid questionnaire type
     SYNST_MQ_001(){
         method.clickAddBtn();
-        method.inputFormValid();
-        method.checkValueInputValid();
+        method.inputFormValid1();
+        method.checkValueInputValid1();
         method.submitForm();
         method.confrimAddForm();
         method.checkSavedDataValid();
@@ -25,7 +25,7 @@ export class Step{
     SYNST_MQ_003(){
         method.selectData();
         method.clickEditDropdown();
-        method.checkValueInputValid();
+        method.checkValueInputValid1();
         method.changeValue();
         method.checkedEditInput();
         method.submitForm();

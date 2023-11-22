@@ -9,28 +9,52 @@ export class Method {
         cy.get(locator.form).should('be.visible');
     }
 
-    inputFormValid(){
-        cy.get(locator.inputName).type('Aldan')
+    // questionnaire
+    inputFormValid1(){
+        cy.get(locator.valueSelect).contains('Choose Questionnaire Type Category')
+        .click({force: true});
+        cy.get(locator.selectDropdown).contains('Questionnaire').click();
+        cy.get(locator.inputTypeName).type('Aldan Maulana')
         cy.get(locator.valueSelect).contains('- Choose Country -')
         .click({force: true});
         cy.get(locator.selectDropdown).contains('Vietnam').click();
-        cy.get(locator.inputCategory).type(123)
-        cy.get(locator.valueSelect2).contains('- Choose Can More -')
+        cy.get(locator.valueSelect).contains('Choose Multiple Entry')
         .click({force: true});
         cy.get(locator.selectDropdown).contains('Yes').click();
-        cy.get(locator.valueSelect3).contains('- Choose Is Active -')
+        cy.get(locator.valueSelect).contains('Choose Active')
         .click({force: true});
         cy.get(locator.selectDropdown).contains('Yes').click();
-        cy.get(locator.inputWeight).type(321)
     }
 
-    checkValueInputValid(){
-        cy.get(locator.inputName).should('have.value', 'Aldan')
-        cy.get(locator.valueSelect).contains('Vietnam').should('be.exist')
-        cy.get(locator.inputCategory).should('have.value', 123)
-        cy.get(locator.valueSelect2).contains('Yes').should('be.exist')
-        cy.get(locator.valueSelect3).contains('Yes').should('be.exist')
-        cy.get(locator.inputWeight).should('have.value', 321)
+    // survey area
+    inputFormValid2(){
+        cy.get(locator.valueSelect).contains('Choose Questionnaire Type Category')
+        .click({force: true});
+        cy.get(locator.selectDropdown).contains('Scoring Survey Area').click();
+        cy.get(locator.inputTypeName).type('Aldan Maulana')
+        cy.get(locator.valueSelect).contains('- Choose Country -')
+        .click({force: true});
+        cy.get(locator.selectDropdown).contains('Vietnam').click();
+        cy.get(locator.valueSelect).contains('Choose Active')
+        .click({force: true});
+        cy.get(locator.selectDropdown).contains('Yes').click();
+        cy.get(locator.inputWeight).type(312);
+    }
+
+    checkValueInputValid1(){
+        cy.get(locator.valueSelect).eq(0).contains('Questionnaire').should('be.exist')
+        cy.get(locator.inputTypeName).should('have.value', 'Aldan Maulana')
+        cy.get(locator.valueSelect).eq(1).contains('Vietnam').should('be.exist')
+        cy.get(locator.valueSelect).eq(2).contains('Yes').should('be.exist')
+        cy.get(locator.valueSelect).eq(3).contains('Yes').should('be.exist')
+    }
+ 
+    checkValueInputValid2(){
+        cy.get(locator.valueSelect).eq(0).contains('Scoring Survey Area').should('be.exist')
+        cy.get(locator.inputTypeName).should('have.value', 'Aldan Maulana')
+        cy.get(locator.valueSelect).eq(1).contains('Vietnam').should('be.exist')
+        cy.get(locator.valueSelect).eq(3).contains('Yes').should('be.exist')
+        cy.get(locator.inputWeight).should('have.value', 312)
     }
 
     submitForm(){
@@ -40,7 +64,7 @@ export class Method {
     confrimAddForm(){
         cy.get(locator.modalCon).find(locator.modalConBody).should('contain', 'Are you sure want to save data?')
         cy.get(locator.submitBtn).contains('Confirm').click();
-        cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'Data has been updated');
+        cy.get(locator.modalCon).find(locator.modalConTitle).should('contain', 'The data has been created');
         cy.get(locator.buttonBtn).contains('Oke').click();
     }
 

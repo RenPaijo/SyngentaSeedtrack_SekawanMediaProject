@@ -8,27 +8,23 @@ export class Locator {
 	submitBtn = 'button[type="submit"]'
 	buttonBtn = 'button[type="button"]'
 	actionBtn = 'button[aria-haspopup="menu"]'
+	addLabelBtn = '.py-3'
 
-	//input
+	//input QT
 	inputSearch = 'input[placeholder="Type to search"]';
-    inputWeight = "[name='SurveyTypeWeight']"
-	inputCategory = "[name='SurveyTypeCat']";
-	inputName = "[name='SurveyTypeName']";
-	selectDropdown = '.css-1laf4ja-menu';
-	valueSelect = '.gap-5 > div:nth-of-type(2) .h-10';
-    valueSelect2 = '.gap-5 > div:nth-of-type(4) .h-10';
-    valueSelect3 = '.gap-5 > div:nth-of-type(5) .h-10';
-	resetSelect = '.css-1vbg55u-indicatorContainer';
+	valueSelect = '.css-1n0qa22'
+	inputTypeName = "[name='SurveyTypeName']"
+	inputWeight = "[name='SurveyTypeWeight']"
+
+	// input Q
 	inputQuestion = "[name='SurveyQuestionnaireQuestion']"
-	inputType = "[name='SurveyQuestionnaireInputType']"
 	inputSequence = "[name='SurveyQuestionnaireSequence']"
-	valueSelect4 = '.gap-5 > div:nth-of-type(1) .h-10'
-	valueSelect5 = '.gap-5 > div:nth-of-type(3) .h-10'
-	valueSelect6 = '.gap-5 > div:nth-of-type(6) .h-10'
-	valueSelect7 = '.gap-5 > div:nth-of-type(8) .h-10'
+	inputLabel1 = "[placeholder='Enter Label 1']"
+	inputLabel2 = "[placeholder='Enter Label 2']"
 
 	//dropdown
 	dropdown = 'div[role="menu"]'
+	selectDropdown = '.css-1laf4ja-menu';
 	
 	//modals selector for specific action
 
