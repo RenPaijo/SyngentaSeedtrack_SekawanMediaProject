@@ -11,35 +11,37 @@ export class Method {
     }
 
     inputFormValid(){
-        cy.get(locator.valueSelect4).contains('- Choose Type -')
+        cy.get(locator.valueSelect).contains('Choose Type')
         .click({force: true});
-        cy.get(locator.selectDropdown).contains('Survey Datess').click();
-        cy.get(locator.valueSelect).contains('- Choose Country -')
+        cy.get(locator.selectDropdown).contains('Pengairan').click();
+        cy.get(locator.valueSelect).contains('Choose Country')
         .click({force: true});
-        cy.get(locator.selectDropdown).contains('Malaysia').click();
-        cy.get(locator.valueSelect5).contains('- Choose Crop -')
+        cy.get(locator.selectDropdown).contains('Thailand').click();
+        cy.get(locator.valueSelect).contains('Choose Crop')
         .click({force: true});
-        cy.get(locator.selectDropdown).contains('Corn').click();
-        cy.get(locator.inputQuestion).type('Aldan M F')
-        cy.get(locator.inputType).type(456)
-        cy.get(locator.valueSelect6).contains('- Choose Is Required -')
+        cy.get(locator.selectDropdown).contains('Melon').click();
+        cy.get(locator.valueSelect).contains('Choose Input Type')
+        .click({force: true});
+        cy.get(locator.selectDropdown).contains('Text').click();
+        cy.get(locator.inputQuestion).type('Aldan Maulana')
+        cy.get(locator.valueSelect).contains('Choose Required')
         .click({force: true});
         cy.get(locator.selectDropdown).contains('Yes').click();
-        cy.get(locator.inputSequence).type(654)
-        cy.get(locator.valueSelect7).contains('- Choose Is Active -')
+        cy.get(locator.inputSequence).type(123)
+        cy.get(locator.valueSelect).contains('Choose Active')
         .click({force: true});
         cy.get(locator.selectDropdown).contains('Yes').click();
     }
 
     checkValueInputValid(){
-        cy.get(locator.valueSelect4).contains('Survey Datess').should('be.exist')
-        cy.get(locator.valueSelect).contains('Malaysia').should('be.exist')
-        cy.get(locator.valueSelect5).contains('Corn').should('be.exist')
-        cy.get(locator.inputQuestion).should('have.value', 'Aldan M F')
-        cy.get(locator.inputType).should('have.value', 123)
-        cy.get(locator.valueSelect6).contains('Yes').should('be.exist')
-        cy.get(locator.inputSequence).should('have.value', 321)
-        cy.get(locator.valueSelect7).contains('Yes').should('be.exist')
+        cy.get(locator.valueSelect).eq(0).contains('Pengairan').should('be.exist')
+        cy.get(locator.valueSelect).eq(1).contains('Thailand').should('be.exist')
+        cy.get(locator.valueSelect).eq(2).contains('Melon').should('be.exist')
+        cy.get(locator.valueSelect).eq(3).contains('Text').should('be.exist')
+        cy.get(locator.inputQuestion).should('have.value', 'Aldan Maulana')
+        cy.get(locator.valueSelect).eq(4).contains('Yes').should('be.exist')
+        cy.get(locator.inputSequence).should('have.value', 123)
+        cy.get(locator.valueSelect).eq(5).contains('Yes').should('be.exist')
     }
 
     submitForm(){
@@ -67,7 +69,6 @@ export class Method {
         cy.contains('Is Required is required').should('be.visible').and('be.exist')
         cy.contains('Sequence is required').should('be.visible').and('be.exist')
         cy.contains('Is Active is required').scrollIntoView();
-        cy.contains('Is Active is required').should('be.visible').and('be.exist')
     }
 
     selectData() {

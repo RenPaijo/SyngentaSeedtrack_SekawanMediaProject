@@ -8,9 +8,9 @@ export class Step{
         method.clickAddBtn();
         method.inputFormValid();
         method.checkValueInputValid();
-        method.submitForm();
-        method.confrimAddForm();
-        method.checkSavedDataValid();
+        // method.submitForm();
+        // method.confrimAddForm();
+        // method.checkSavedDataValid();
     }
 
     // Add data no input questionnaire

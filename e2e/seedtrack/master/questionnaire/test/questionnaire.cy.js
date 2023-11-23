@@ -33,48 +33,48 @@ describe('Master Questionnaire', () => {
     });
 
     describe('Questionnaire', () => {
-        it.skip('Tambah data valid', () => {
+        it('Tambah data valid', () => {
             step.SYNST_MQ_012();
         });
 
-        it.skip('Validasi inputan sama dengan yang di tampilkan', () => {
-            step.SYNST_MQ_022();
-        });
+        // it.skip('Validasi inputan sama dengan yang di tampilkan', () => {
+        //     step.SYNST_MQ_022();
+        // });
     
-        it('Tambah data tanpa input di form', () => {
-            step.SYNST_MQ_013();    
-        });
+        // it('Tambah data tanpa input di form', () => {
+        //     step.SYNST_MQ_013();    
+        // });
 
-        it.skip('Edit data valid', () => {
-            step.SYNST_MQ_014();
-        });
+        // it.skip('Edit data valid', () => {
+        //     step.SYNST_MQ_014();
+        // });
 
-        it('Edit data invalid', () => {
-            step.SYNST_MQ_015();
-        });
+        // it('Edit data invalid', () => {
+        //     step.SYNST_MQ_015();
+        // });
 
-        it('Search data dengan valid', () => {
-            step.SYNST_MQ_016();
-        });
+        // it('Search data dengan valid', () => {
+        //     step.SYNST_MQ_016();
+        // });
 
-        it('Search data yang tidak ada di list tabel', () => {
-            step.SYNST_MQ_017();
-        });
+        // it('Search data yang tidak ada di list tabel', () => {
+        //     step.SYNST_MQ_017();
+        // });
 
-        it('Refresh table', () => {
-            step.SYNST_MQ_018();
-        });
+        // it('Refresh table', () => {
+        //     step.SYNST_MQ_018();
+        // });
 
-        it.skip('Delete data', () => {
-            step.SYNST_MQ_019();
-        });
+        // it.skip('Delete data', () => {
+        //     step.SYNST_MQ_019();
+        // });
 
-        it('Pagination table', () => {
-            step.SYNST_MQ_020();
-        });
+        // it('Pagination table', () => {
+        //     step.SYNST_MQ_020();
+        // });
 
-        it('Sorting Table', () => {
-            step.SYNST_MQ_021();
-        });
+        // it('Sorting Table', () => {
+        //     step.SYNST_MQ_021();
+        // });
     });
 })

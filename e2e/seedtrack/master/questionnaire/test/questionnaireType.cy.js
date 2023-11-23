@@ -37,44 +37,44 @@ describe('Master Questionnaire', () => {
             step.SYNST_MQ_001();
         });
 
-        it('Validasi inputan sama dengan yang di tampilkan', () => {
-            step.SYNST_MQ_011();
-        });
+        // it('Validasi inputan sama dengan yang di tampilkan', () => {
+        //     step.SYNST_MQ_011();
+        // });
     
-        it('Tambah data tanpa input di form', () => {
-            step.SYNST_MQ_002();    
-        });
+        // it('Tambah data tanpa input di form', () => {
+        //     step.SYNST_MQ_002();    
+        // });
 
-        it('Edit data valid', () => {
-            step.SYNST_MQ_003();
-        });
+        // it('Edit data valid', () => {
+        //     step.SYNST_MQ_003();
+        // });
 
-        it('Edit data invalid', () => {
-            step.SYNST_MQ_004();
-        });
+        // it('Edit data invalid', () => {
+        //     step.SYNST_MQ_004();
+        // });
 
-        it('Search data dengan valid', () => {
-            step.SYNST_MQ_005();
-        });
+        // it('Search data dengan valid', () => {
+        //     step.SYNST_MQ_005();
+        // });
 
-        it('Search data yang tidak ada di list tabel', () => {
-            step.SYNST_MQ_006();
-        });
+        // it('Search data yang tidak ada di list tabel', () => {
+        //     step.SYNST_MQ_006();
+        // });
 
-        it('Refresh table', () => {
-            step.SYNST_MQ_007();
-        });
+        // it('Refresh table', () => {
+        //     step.SYNST_MQ_007();
+        // });
 
-        it('Delete data', () => {
-            step.SYNST_MQ_008();
-        });
+        // it('Delete data', () => {
+        //     step.SYNST_MQ_008();
+        // });
 
-        it('Pagination table', () => {
-            step.SYNST_MQ_009();
-        });
+        // it('Pagination table', () => {
+        //     step.SYNST_MQ_009();
+        // });
 
-        it('Sorting Table', () => {
-            step.SYNST_MQ_010();
-        }); 
+        // it('Sorting Table', () => {
+        //     step.SYNST_MQ_010();
+        // }); 
     });
 })

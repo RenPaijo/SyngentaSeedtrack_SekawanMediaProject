@@ -1,30 +1,22 @@
 export class Locator {
 
-	//data master - questionnaire
-	tableQuestionnaire = 'tbody';
+	//data survey - Scoring Survey Area
+	tableSsa = 'tbody';
 
 	//button
 	genericBtn = 'button'
 	submitBtn = 'button[type="submit"]'
 	buttonBtn = 'button[type="button"]'
 	actionBtn = 'button[aria-haspopup="menu"]'
-	addLabelBtn = '.py-3'
 
-	//input QT
+	//input
 	inputSearch = 'input[placeholder="Type to search"]';
-	valueSelect = '.css-1n0qa22'
-	inputTypeName = "[name='SurveyTypeName']"
-	inputWeight = "[name='SurveyTypeWeight']"
-
-	// input Q
-	inputQuestion = "[name='SurveyQuestionnaireQuestion']"
-	inputSequence = "[name='SurveyQuestionnaireSequence']"
-	inputLabel1 = "[placeholder='Enter Label 1']"
-	inputLabel2 = "[placeholder='Enter Label 2']"
+	valueSelect = '.css-19bb58m'
+	valueSelect1 = '.css-19bb58m'
+	selectDropdown = '.css-qr46ko';
 
 	//dropdown
 	dropdown = 'div[role="menu"]'
-	selectDropdown = '.css-1laf4ja-menu';
 	
 	//modals selector for specific action
 
@@ -32,16 +24,15 @@ export class Locator {
 	//generic modals parts
 	form = 'form'
 
+	history = '.scale-100'
 
 	//error swal contents
 
 
 	//generic datatable parts
 	tableHeader = 'thead'
-	tableHead = 'th'
 	tableBody = 'tbody'
-	rowTable = 'tr'
-    dataTable = 'td'
+	rowTable = 'tr';
 	descendedArrow = 'th[class="sorting_desc"]';
 	ascendedArrow = 'th[class="sorting_asc"]';
 	inactiveArrow = 'th[class="sorting"]'
@@ -50,6 +41,7 @@ export class Locator {
 
 	//elements that has no unique identifier
 	modalTitleAdd = 'p[class="trans-text-lg"]'
+	modalTitleImport = 'p[class="font-medium text-sm"]'
 	modalClose = 'svg[class="cursor-pointer"]'
 	modalCon = '#myModal'
 	modalConTitle = '.trans-modal-title'
